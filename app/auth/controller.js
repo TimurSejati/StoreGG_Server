@@ -63,8 +63,6 @@ module.exports = {
 
 	signin: async (req, res, next) => {
 		const { email, password } = req.body;
-		console.log(email, password);
-
 
 		Player.findOne({ email: email }).then((player) => {
 
