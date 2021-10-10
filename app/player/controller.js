@@ -27,7 +27,14 @@ module.exports = {
 			const voucher = await Voucher.findOne({ _id: id })
 				.populate('category')
 				.populate('nominals')
+				.populate([
+					{
+						path: 'payment',
+						populate: [{ path: 'banks' }]
+					}
+				])
 				.populate('user', '_id name phoneNumber');
+
 
 			if (!voucher) {
 				return res.status(404).json({ message: 'Voucher game tidak ditemukan!' })

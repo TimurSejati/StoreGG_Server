@@ -5,6 +5,7 @@
       <th>Nama Game</th>
       <th>Category</th>
       <th>Nominal</th>
+      <th>Payment</th>
       <th>Status</th>
       <th>Aksi</th>
     </tr>
@@ -20,6 +21,11 @@
         <span class="badge badge-success">
           <%= nominal.coinName %> <%= nominal.coinQuantity %>
         </span>
+        <% }) %>
+      </td>
+      <td>
+        <% voucher[i].payment.forEach(payment => { %>
+        <span class="badge badge-success"> <%= payment.type %> </span>
         <% }) %>
       </td>
       <td>

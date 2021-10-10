@@ -94,6 +94,32 @@
                     </select>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <label>Payment</label>
+                  <div class="select2-purple">
+                    <select
+                      class="form-control select2"
+                      style="width: 100%"
+                      name="payment"
+                      multiple="multiple"
+                      data-placeholder="Pilih nominal"
+                    >
+                      <% payment.forEach(payment => { %>
+                      <option value="<%= payment._id%>"
+												<% voucher.payment.forEach(voucherPayment => { %>
+														<% if(payment._id.toString() === voucherPayment._id.toString()) { %>
+															selected
+														<% } %>
+												<% })%>	
+											>
+                        <%= payment.type %>
+                      </option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+
                 <div class="form-group">
                   <label for="thumbnail">Image</label>
                   <input
